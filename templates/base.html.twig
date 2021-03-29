@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+			<link rel="stylesheet" href="assets/styles/css/style.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+		{% endblock %}
+
+
+	</head>
+	{% include 'commun/_navbar.html.twig' %}
+
+	<body>
+		{% block body %}{% endblock %}
+	</body>
+	{% block javascripts %}
+		<script src="assets/js/main.js"></script>
+	{% endblock %}
+
+</html>
