@@ -1,32 +1,43 @@
-{% block stylesheets %}
-	<link rel="stylesheet" href="assets/styles/css/style-navbar.css">
-{% endblock %}
-
-
-<nav>
-	<img src="{{asset('assets/img/logo.jpg')}}" alt="logo">
+<nav id="navbar">
 	<ul>
-		<li>
-			<i class="fas fa-user"></i>
-			<a href="#">Près de chez vous</a>
-		</li>
-
-
+		<li><img src="{{asset('assets/img/logo.jpg')}}" alt="logo"></li>
 		<li>
 			<i class="fas fa-map-marker-alt"></i>
-			<a href="#">Se connecteer</a>
+			<a href="#">Près de chez vous</a>
 		</li>
-
 		<li>
-			<i class="fas fa-search"></i>
-			<a href="#">Rechercher</a>
+			<i class="fas fa-user"></i>
+			<a href="#">Se connecter</a>
 		</li>
-
 		<li>
 			<i class="far fa-plus-square"></i>
 			<a href="#">Déposer une annonce</a>
 		</li>
-
-
+		<li>
+			<i class="fas fa-search"></i>
+			<input type="search" name="search-game" id="search-game" placeholder="Recherchez un jeu ...">
+		</li>
+	</ul>
+</nav>
+<nav id="navbar-categories">
+	<ul>
+		<li>
+			<i class="fas fa-home"></i>
+		</li>
+		<li>
+			<a href="#">Nintendo64</a>
+		</li>
+		<li>
+			<a href="#">Gamecube</a>
+		</li>
+		<li>
+			<a href="#">NES</a>
+		</li>
+		<li>
+			<a href="#">PS1</a>
+		</li>
+		<li>
+			<a href="#">Xbox</a>
+		</li>
 	</ul>
 </nav>

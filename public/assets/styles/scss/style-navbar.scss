@@ -1,4 +1,43 @@
-h1,
-p {
-  color: blue;
+@import "style.scss";
+
+#navbar {
+  display: flex;
+  background-color: $color-primary;
+  height: 150px;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  a,
+  i {
+    font-size: 2rem;
+    color: white;
+  }
+  i {
+    padding-right: 1rem;
+  }
+  input {
+    height: 2rem;
+    vertical-align: top;
+    width: 250px;
+  }
+}
+#navbar-categories {
+  border-bottom: 1px solid $color-primary;
+  a,
+  i {
+    font-size: 1.5rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 25px;
+  }
 }
