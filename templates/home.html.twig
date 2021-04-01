@@ -10,7 +10,9 @@
 
 {% block body %}
 	<h1>Accueil</h1>
-	<img
-	src="{{jeu.photo}}" alt="">
-{# <p>{{jeu.nom}}</p> #}
+	{% for j in jeu %}
+		<p>{{j.nom}}</p>
+		<img src="{{j.photo}}" alt="">
+
+	{% endfor %}
 {% endblock %}
