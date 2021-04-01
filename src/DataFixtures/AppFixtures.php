@@ -39,6 +39,11 @@ class AppFixtures extends Fixture
         $faker->addProvider(new \Bluemmb\Faker\PicsumPhotosProvider($faker));
 
         $console = ['Xbox', 'Nintendo 64', 'PlayStation 1', 'GameCube', 'NES'];
+        $jeux = [
+            'Super Mario Bros', 'Sonic', 'Zelda : ocarina of time', 'Mario Kart 64', 'Super Smash Bros Melee', 'Dead or Alive', 'Dead or Alive Xtreme Beach Volley Ball', 'Enter the Matrix', 'Max Payne 2', 'Yoshi\'s Island', 'Commandos 3', 'Final Fantasy X', 'Pokemon Rubis',  'Starcraft',  'Grand Theft Auto 3', 'Homeworld 2', 'Aladin',  'Super Mario Bros 3', 'SSX 3', 'Star Wars : Jedi outcast', 'Actua Soccer 3', 'Time Crisis 3', 'X-FILES',
+            'Soul Calibur 2', 'Diablo',  'Street Fighter 2', 'Gundam Battle Assault 2', 'Spider-Man', 'Midtown Madness 3', 'Tetris', 'The Rocketeer', 'Pro Evolution Soccer 3', 'Ice Hockey', 'Sydney 2000', 'NBA 2k', 'Aliens Versus Predator : Extinction', 'Crazy Taxi', 'Le Maillon Faible', 'FIFA 64', 'Qui Veut Gagner Des Millions', 'Monopoly', 'Taxi 3', 'Indiana Jones Et Le Tombeau De L\'Empereur',  'F-ZERO', 'Harry Potter Et La Chambre Des Secrets',  'Half-Life',  'Myst III Exile', 'Wario World',  'Rollercoaster Tycoon',  'Splinter Cell'
+        ];
+        $value = $jeux[array_rand($jeux)];
         for ($c = 0; $c < 5; $c++) {
             $categorie = new Categorie;
             $categorie->setNom($console[$c])
@@ -46,11 +51,15 @@ class AppFixtures extends Fixture
             $manager->persist($categorie);
 
             for ($j = 0; $j < mt_rand(15, 20); $j++) {
+                $start    = new Datetime('1st December 2020');
+                $end      = new Datetime();
+                $random   = new DateTime('@' . mt_rand($start->getTimestamp(), $end->getTimestamp()));
+
                 $jeu = new Jeu;
-                $jeu->setNom($faker->sentence(3))
+                $jeu->setNom($jeux[array_rand($jeux)])
                     ->setPrix($faker->price(100, 6000))
                     ->setDescription($faker->paragraph)
-                    ->setDate(new DateTime())
+                    ->setDate($random)
                     ->setPhoto($faker->imageUrl(400, 400, true))
                     ->setSlug($this->slugger->slug($jeu->getNom()))
                     ->setCategorie($categorie);
