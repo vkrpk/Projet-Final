@@ -14,7 +14,8 @@ class HomeController extends AbstractController
      */
     public function home(JeuRepository $jeuRepository): Response
     {
-        $jeu = $jeuRepository->find(799);
+        $jeu = $jeuRepository->findBy([], [], 1);
+        // dd($jeu);
 
         return $this->render('home.html.twig', [
             'jeu' => $jeu
