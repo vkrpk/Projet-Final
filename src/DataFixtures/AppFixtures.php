@@ -60,10 +60,8 @@ class AppFixtures extends Fixture
                     ->setPrix($faker->price(100, 6000))
                     ->setDescription($faker->paragraph)
                     ->setDate($random)
-                    // ->setPhoto(getData($this->getParameter('jeu_photo_directory'), 'logo.jpg'))
                     // ->setPhoto($faker->imageUrl(400, 400, true))
-                    // ->setPhoto($faker->image('/../../public/assets/img/logo.jpg'))
-                    ->setPhoto($faker->image('/tmp/logo.jpg'))
+                    ->setPhoto("/assets/img/categorie$c.jpg")
                     ->setSlug($this->slugger->slug($jeu->getNom()))
                     ->setCategorie($categorie);
 
