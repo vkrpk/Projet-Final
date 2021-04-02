@@ -21,20 +21,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(JeuRepository $jeuRepository): Response
-    {
-        $jeu = $jeuRepository->findBy([], [], 1);
-        // dd($jeu);
-
-        return $this->render('home.html.twig', [
-            'jeu' => $jeu
-        ]);
-    }
-
-    /**
-     * @Route("/chercher", name="home_chercher")
-     */
-    public function chercher(JeuRepository $jeuRepository, Request $request, FormFactoryInterface $formFactory): Response
+    public function home(JeuRepository $jeuRepository, Request $request, FormFactoryInterface $formFactory): Response
     {
         $chercher = new Chercher();
 
@@ -42,11 +29,23 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
 
-        $jeu = $jeuRepository->chercherJeu($chercher);
-        // dd($jeu);
-        return $this->render('chercher.html.twig', [
-            'jeux' => $jeu,
+        $jeuChercher = $jeuRepository->chercherJeu($chercher);
+
+        $lastJeux = $jeuRepository->findBy([], [], 1);
+        // dd($jeuChercher);
+
+        return $this->render('home.html.twig', [
+            'lastJeux' => $lastJeux,
+            'jeuxChercher' => $jeuChercher,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/chercher", name="home_chercher")
+     */
+    public function chercher(): Response
+    {
+        return $this->render('chercher.html.twig');
     }
 }
