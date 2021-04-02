@@ -1,1 +1,9 @@
 {% extends "base.html.twig" %}
+
+
+{% block body %}
+	{% for jeu in jeuxChercher %}
+		<p>{{jeu.nom}}</p>
+	{% endfor %}
+
+{% endblock %}

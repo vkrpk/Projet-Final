@@ -23,6 +23,8 @@ class HomeController extends AbstractController
      */
     public function home(JeuRepository $jeuRepository, Request $request, FormFactoryInterface $formFactory): Response
     {
+        $lastJeux = $jeuRepository->findBy([], [], 1);
+
         $chercher = new Chercher();
 
         $form = $formFactory->create(ChercherType::class, $chercher);
@@ -30,22 +32,30 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         $jeuChercher = $jeuRepository->chercherJeu($chercher);
-
-        $lastJeux = $jeuRepository->findBy([], [], 1);
-        // dd($jeuChercher);
+        dump($jeuChercher[1]);
 
         return $this->render('home.html.twig', [
             'lastJeux' => $lastJeux,
-            'jeuxChercher' => $jeuChercher,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'jeuxChercher' => $jeuChercher
         ]);
     }
 
+
+    // $form = $this->createFormBuilder(null)
+    //     ->add('search', TextType::class)
+    //     ->getForm();
+
+
+
+
     /**
      * @Route("/chercher", name="home_chercher")
+     * @param Request $request
      */
-    public function chercher(): Response
+    public function chercher(Request $request): Response
     {
+        // dd($request->request);
         return $this->render('chercher.html.twig');
     }
 }
