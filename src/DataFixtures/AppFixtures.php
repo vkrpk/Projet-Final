@@ -50,7 +50,7 @@ class AppFixtures extends Fixture
                 ->setSlug(strtolower($this->slugger->slug($categorie->getNom())));
             $manager->persist($categorie);
 
-            for ($j = 0; $j < mt_rand(15, 20); $j++) {
+            for ($j = 0; $j < mt_rand(30, 40); $j++) {
                 $start    = new Datetime('1st December 2020');
                 $end      = new Datetime();
                 $random   = new DateTime('@' . mt_rand($start->getTimestamp(), $end->getTimestamp()));

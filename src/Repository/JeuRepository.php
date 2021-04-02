@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Jeu;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\Chercher;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Jeu|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,17 @@ class JeuRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Jeu::class);
+    }
+
+    public function chercherJeu(Chercher $chercher)
+    {
+        $queryBuilder = $this->createQueryBuilder("j");
+        if ($chercher->getKeyWord() !== null) {
+            $queryBuilder
+                ->where("j.nom LIKE :keyWord")
+                ->setParameter("keyWord", '%' . $chercher->getKeyWord() . '%');
+        }
+        return $queryBuilder->getQuery()->getResult();
     }
 
     // /**
