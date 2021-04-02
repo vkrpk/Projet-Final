@@ -8,9 +8,9 @@
 		</title>
 
 		{% block stylesheets %}
-			<link rel="stylesheet" href="assets/styles/css/style.css">
-			<link rel="stylesheet" href="assets/styles/css/style-navbar.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+			<link rel="stylesheet" href="{{asset('assets/styles/css/style.css')}}">
+			<link rel="stylesheet" href="{{asset('assets/styles/css/style-navbar.css')}}">
 		{% endblock %}
 	</head>
 
@@ -21,7 +21,7 @@
 		{% block body %}{% endblock %}
 	</body>
 	{% block javascripts %}
-		<script src="assets/js/main.js"></script>
+		<script src="{{asset('assets/js/main.js')}}"></script>
 	{% endblock %}
 
 </html>

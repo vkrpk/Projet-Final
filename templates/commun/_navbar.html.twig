@@ -15,26 +15,22 @@
 		</li>
 		<li>
 			<i class="fas fa-search"></i>
-			{# {{form_start(form)}}
-			
-						{{form_errors(form)}}
-			
-						{{form_widget(form.keyWord)}}
-			
-						{{form_end(form)}} #}
+			{# {{form(form, {action: path('home_chercher')} ) }} #}
 
-			{# <input
-																														type="search" name="form[keyWord]" id="form_keyWord" placeholder="Recherchez un jeu ..."> #}
-			{# {{form_start(form)}}
-																																							{{form_errors(form)}}
-																																							{{form_row(form.keyWord)}}
-																																							{{form_help(form)}}
-																																							{{form_end(form)}} #}
+			{# {{form_start(form, {action: path('home_chercher')})}} #}
 
-				<button type="submit"> <i class="fas fa-filter"></i>
+			<form
+				action="{{path('home_chercher')}}" method="post">
 
-			</button>
+				{# <input type="search" name="" id="" value="{{jeuxChercher}}"> #}
 
+				{{form_start(form)}}
+				{{form_widget(form.keyWord)}}
+				{{form_end(form)}}
+
+
+				<button type="submit"></button>
+			</form>
 		</li>
 	</li>
 </ul></nav><nav id="navbar-categories">
