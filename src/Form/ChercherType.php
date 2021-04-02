@@ -15,8 +15,9 @@ class ChercherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('keyWord', TextType::class)
-            ->add('submit', SubmitType::class);
+            ->add('keyWord', TextType::class, [
+                'label' => 'test'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

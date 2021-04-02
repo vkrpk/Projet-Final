@@ -15,7 +15,26 @@
 		</li>
 		<li>
 			<i class="fas fa-search"></i>
-			<input type="search" name="search-game" id="search-game" placeholder="Recherchez un jeu ...">
+			{# {{form_start(form)}}
+			
+						{{form_errors(form)}}
+			
+						{{form_widget(form.keyWord)}}
+			
+						{{form_end(form)}} #}
+
+			{# <input
+																														type="search" name="form[keyWord]" id="form_keyWord" placeholder="Recherchez un jeu ..."> #}
+			{# {{form_start(form)}}
+																																							{{form_errors(form)}}
+																																							{{form_row(form.keyWord)}}
+																																							{{form_help(form)}}
+																																							{{form_end(form)}} #}
+
+				<button type="submit"> <i class="fas fa-filter"></i>
+
+			</button>
+
 		</li>
 	</li>
 </ul></nav><nav id="navbar-categories">
