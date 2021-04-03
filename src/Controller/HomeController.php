@@ -2,60 +2,62 @@
 
 namespace App\Controller;
 
-use App\Entity\Chercher;
-use App\Form\ChercherType;
-use App\Form\SearchType;
 use App\Repository\JeuRepository;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function home(JeuRepository $jeuRepository, Request $request, FormFactoryInterface $formFactory): Response
+    public function home(JeuRepository $jeuRepository): Response
     {
         $lastJeux = $jeuRepository->findBy([], [], 1);
 
-        $chercher = new Chercher();
-
-        $form = $formFactory->create(ChercherType::class, $chercher);
-
-        $form->handleRequest($request);
-
-        $jeuChercher = $jeuRepository->chercherJeu($chercher);
-        dump($jeuChercher[1]);
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('home_chercher'))
+            ->add('query', SearchType::class)
+            ->add('submit', SubmitType::class)
+            ->getForm();
 
         return $this->render('home.html.twig', [
             'lastJeux' => $lastJeux,
-            'form' => $form->createView(),
-            'jeuxChercher' => $jeuChercher
+            'form' => $form->createView()
+
         ]);
     }
 
+    // public function formChercher(): Response
+    // {
+    //     $form = $this->createFormBuilder()
+    //         ->setAction($this->generateUrl('home_chercher'))
+    //         ->add('query', SearchType::class)
+    //         ->add('submit', SubmitType::class)
+    //         ->getForm();
 
-    // $form = $this->createFormBuilder(null)
-    //     ->add('search', TextType::class)
-    //     ->getForm();
-
-
-
+    //     return $this->render('home.html.twig', [
+    //         'form' => $form->createView()
+    //     ]);
+    // }
 
     /**
      * @Route("/chercher", name="home_chercher")
      * @param Request $request
      */
-    public function chercher(Request $request): Response
+    public function chercher(Request $request, JeuRepository $jeuRepository): Response
     {
-        // dd($request->request);
-        return $this->render('chercher.html.twig');
+        $query = $request->request->get('form')['query'];
+        if ($query) {
+            $jeux = $jeuRepository->chercherJeu($query);
+        }
+
+        return $this->render('chercher.html.twig', [
+            'jeux' => $jeux
+        ]);
     }
 }
