@@ -15,22 +15,8 @@
 		</li>
 		<li>
 			<i class="fas fa-search"></i>
-			{# {{form(form, {action: path('home_chercher')} ) }} #}
-
-			{# {{form_start(form, {action: path('home_chercher')})}} #}
-
-			<form
-				action="{{path('home_chercher')}}" method="post">
-
-				{# <input type="search" name="" id="" value="{{jeuxChercher}}"> #}
-
-				{{form_start(form)}}
-				{{form_widget(form.keyWord)}}
-				{{form_end(form)}}
-
-
-				<button type="submit"></button>
-			</form>
+			{# {{render(controller('App\\Controller\\HomeController::home'))}}
+						{{form(form)}} #}
 		</li>
 	</li>
 </ul></nav><nav id="navbar-categories">
@@ -53,4 +39,4 @@
 	<li>
 		<a href="#">Xbox</a>
 	</li>
-</ul></nav>
+</ul></nav></li>

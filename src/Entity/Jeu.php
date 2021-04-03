@@ -52,6 +52,11 @@ class Jeu
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lieu;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Jeu
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
 
         return $this;
     }
