@@ -22,6 +22,7 @@ a {
 }
 
 #navbar {
+  position: relative;
   display: flex;
   background-color: #1c0e3f;
   height: 150px;
@@ -49,6 +50,9 @@ a {
   vertical-align: top;
   width: 250px;
 }
+#navbar .fas.fa-bars {
+  display: none;
+}
 
 #navbar-categories {
   border-bottom: 1px solid #1c0e3f;
@@ -62,6 +66,76 @@ a {
   align-items: center;
   justify-content: space-around;
   height: 25px;
+}
+
+@media all and (max-width: 1500px) {
+  #navbar {
+    height: 75px;
+  }
+  #navbar a,
+#navbar i {
+    font-size: 1rem;
+  }
+  #navbar i {
+    padding-right: 0.5rem;
+  }
+  #navbar input {
+    width: 125px;
+    height: 1rem;
+  }
+  #navbar img {
+    height: 50px;
+    width: 50px;
+  }
+
+  #navbar-categories a,
+#navbar-categories i {
+    font-size: 1.25rem;
+  }
+  #navbar-categories ul {
+    height: 12.5px;
+  }
+}
+@media all and (max-width: 900px) {
+  #navbar-categories {
+    display: none;
+  }
+
+  #navbar li:nth-child(n+2) {
+    display: none;
+  }
+  #navbar .fas.fa-bars {
+    font-size: 2rem;
+    display: initial;
+    position: absolute;
+    vertical-align: middle;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+#navbar-burger {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  background-color: #1c0e3f;
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#navbar-burger #navbar-categories-burger {
+  display: flex;
+  flex-direction: column;
+}
+#navbar-burger .fas.fa-times {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.nav-ouverte {
+  transform: translateY(-100%);
 }
 
 /*# sourceMappingURL=style-navbar.css.map */
