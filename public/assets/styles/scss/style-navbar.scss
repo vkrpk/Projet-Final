@@ -5,6 +5,7 @@
   display: flex;
   background-color: $color-primary;
   height: 150px;
+  border-bottom: 1px solid #333;
   img {
     width: 100px;
     height: 100px;
@@ -105,6 +106,16 @@
   color: white;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 1.5rem;
+  input {
+    height: 1.5rem;
+  }
+  i {
+    width: 25px;
+  }
+  .fas.fa-home {
+    font-size: 1.4rem;
+  }
   #navbar-categories-burger {
     display: flex;
     flex-direction: column;

@@ -21,19 +21,24 @@ a {
   color: inherit;
 }
 
-#body-home {
+#body-home,
+#infos {
   padding: 25px 0;
   background-color: gainsboro;
+  border-bottom: 1px solid #333;
 }
-#body-home #body-home-annonces {
+#body-home #body-home-annonces,
+#infos #body-home-annonces {
   display: flex;
   justify-content: center;
 }
-#body-home h2 {
+#body-home h2,
+#infos h2 {
   text-align: center;
   margin-top: 0;
 }
-#body-home #annonce {
+#body-home #annonce,
+#infos #annonce {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,13 +46,16 @@ a {
   width: 20vw;
   margin: 0 5px;
 }
-#body-home img {
+#body-home img,
+#infos img {
   max-width: 100%;
 }
-#body-home figure {
+#body-home figure,
+#infos figure {
   background-color: #fff;
 }
-#body-home figcaption {
+#body-home figcaption,
+#infos figcaption {
   width: 100%;
   border-top: 1px solid #333;
   display: flex;
@@ -56,14 +64,59 @@ a {
   align-items: center;
   justify-content: center;
   height: 100%;
+  background-color: #1c0e3f;
+  color: white;
 }
-#body-home p {
+#body-home p,
+#infos p {
   margin: 0;
+}
+
+#infos {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#infos .iconify {
+  font-size: 2rem;
+}
+#infos .infos-partie {
+  width: 20vw;
+  margin: 0 5px;
+}
+#infos p {
+  margin: 15px 15px 0 15px;
 }
 
 @media all and (max-width: 1500px) {
   #body-home #annonce {
     width: 30vw;
+  }
+
+  #infos .infos-partie {
+    width: 30vw;
+  }
+}
+@media all and (max-width: 700px) {
+  #body-home-annonces {
+    flex-direction: column;
+    align-items: center;
+  }
+  #body-home-annonces #annonce {
+    width: 50vw;
+    margin: 5px 0;
+  }
+
+  #infos {
+    flex-direction: column;
+    align-items: center;
+  }
+  #infos .infos-partie {
+    width: 50vw;
+    margin: 0 0 15px 0;
+  }
+  #infos p {
+    margin: 0;
   }
 }
 
