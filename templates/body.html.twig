@@ -1,0 +1,17 @@
+<section id="body-home">
+	<h2>Annonces récemment publiés</h2>
+	<div id="body-home-annonces">
+		{% for j in lastJeux %}
+			<figure id="annonce">
+				<img src="{{j.photo}}" alt="">
+				<figcaption>
+					<p>{{j.nom}},
+						{{j.categorie.nom}}
+						-
+						{{j.lieu}}</p>
+
+				</figcaption>
+			</figure>
+		{% endfor %}
+	</div>
+</section>

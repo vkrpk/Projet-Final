@@ -1,0 +1,84 @@
+<nav id="navbar">
+	<ul>
+		<li>
+			<img src="{{asset('assets/img/logo.jpg')}}" alt="logo">
+		</li>
+		<li>
+			<i class="fas fa-map-marker-alt"></i>
+			<a href="#">Près de chez vous</a>
+		</li>
+		<li>
+			<i class="fas fa-user"></i>
+			<a href="#">Se connecter</a>
+		</li>
+		<li>
+			<i class="far fa-plus-square"></i>
+			<a href="#">Déposer une annonce</a>
+		</li>
+		<li>
+			<i class="fas fa-search"></i>
+			<input type="search" name="" id="">
+		</li>
+	</ul>
+	{# {{render(controller('App\\Controller\\HomeController::home'))}}
+																																																																																									{{form(form)}} #}
+	<i class="fas fa-bars icone-menu"></i>
+</nav>
+<nav id="navbar-categories">
+	<ul>
+		<li>
+			<i class="fas fa-home"></i>
+		</li>
+		<li>
+			<a href="#">Nintendo64</a>
+		</li>
+		<li>
+			<a href="#">Gamecube</a>
+		</li>
+		<li>
+			<a href="#">NES</a>
+		</li>
+		<li>
+			<a href="#">PS1</a>
+		</li>
+		<li>
+			<a href="#">Xbox</a>
+		</li>
+	</ul>
+</nav>
+<div id="navbar-burger" class="nav-ouverte">
+	<nav>
+		<ul>
+			<li>
+				<i class="fas fa-home"></i>
+				<a href="#">Accueil</a>
+			</li>
+			<li>
+				<i class="fas fa-map-marker-alt"></i>
+				<a href="#">Près de chez vous</a>
+			</li>
+			<li>
+				<i class="fas fa-user"></i>
+				<a href="#">Se connecter</a>
+			</li>
+			<li>
+				<i class="far fa-plus-square"></i>
+				<a href="#">Déposer une annonce</a>
+			</li>
+			<li>
+				<i class="fas fa-search"></i>
+				<input type="search" name="" id="" placeholder="Recherchez un jeu...">
+			</li>
+		</ul>
+	</nav>
+	<nav id="navbar-categories-burger">
+		<ul>
+			<li><a href="#">Nintendo64</a></li>
+			<li><a href="#">Gamecube</a></li>
+			<li><a href="#">NES</a></li>
+			<li><a href="#">PS1</a></li>
+			<li><a href="#">Xbox</a></li>
+		</ul>
+	</nav>
+	<i class="fas fa-times icone-menu"></i>
+</div>

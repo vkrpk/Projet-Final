@@ -9,15 +9,6 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Accueil</h1>
-	{% for j in lastJeux %}
-		<p>{{j.nom}}</p>
-		<img src="{{j.photo}}" alt="">
+	{% include "body.html.twig" %}
 
-	{% endfor %}
-
-	<div>
-		{{form(form)}}
-		</div>
-
-	{% endblock %}
+{% endblock %}

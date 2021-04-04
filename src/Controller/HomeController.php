@@ -17,7 +17,7 @@ class HomeController extends AbstractController
      */
     public function home(JeuRepository $jeuRepository): Response
     {
-        $lastJeux = $jeuRepository->findBy([], [], 1);
+        $lastJeux = $jeuRepository->findBy([], [], 3);
 
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('home_chercher'))
