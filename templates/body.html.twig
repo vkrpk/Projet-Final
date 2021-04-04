@@ -15,3 +15,18 @@
 		{% endfor %}
 	</div>
 </section>
+<section id="infos">
+	{% include 'infos.html.twig' with {
+		'icone': 'emojione:money-with-wings',
+		'text': 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ipsam dolore accusantium nemo cupiditate doloremque minus optio qui ipsa, voluptatibus voluptate provident ab placeat quas eum dolorum. Error, doloremque quis!'
+      } %}
+	{% include 'infos.html.twig' with {
+		'icone': 'flat-color-icons:online-support',
+		'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore sed temporibus ullam facere debitis nisi. Modi cum porro quae facilis reprehenderit earum iusto atque natus, tenetur deleniti tempora repudiandae vitae.'
+
+      } %}
+	{% include 'infos.html.twig' with {
+		'icone': 'twemoji:video-game',	
+		'text': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam placeat deleniti, corporis exercitationem tenetur nisi praesentium, possimus ipsa ad saepe sapiente dicta dignissimos ut magnam enim in distinctio voluptatum dolor.'
+      } %}
+</section>
