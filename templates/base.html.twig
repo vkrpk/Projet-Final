@@ -8,19 +8,22 @@
 		</title>
 
 		{% block stylesheets %}
+			<link rel="shortcut icon" href="#">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-			<link rel="stylesheet" href="{{asset('assets/styles/css/style.css')}}">
 			<link rel="stylesheet" href="{{asset('assets/styles/css/style-navbar.css')}}">
+			<link rel="stylesheet" href="{{asset('assets/styles/css/style-home-annonces.css')}}">
+			<link rel="stylesheet" href="{{asset('assets/styles/css/style-footer.css')}}">
+			<link rel="stylesheet" href="{{asset('assets/styles/css/style.css')}}">
 		{% endblock %}
 	</head>
 
-
-	{% include 'commun/_navbar.html.twig' %}
-
 	<body>
+		{% include 'parties-communes/navbar.html.twig' %}
 		{% block body %}{% endblock %}
+		{% include "parties-communes/footer.html.twig" %}
 	</body>
 	{% block javascripts %}
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 		<script src="{{asset('assets/js/main.js')}}"></script>
 	{% endblock %}
 
