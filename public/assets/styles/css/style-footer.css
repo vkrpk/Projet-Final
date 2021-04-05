@@ -33,13 +33,10 @@ a {
   margin: 0;
 }
 
-#div-copyright {
-  background-color: #1c0e3f;
-}
 #div-copyright p {
   text-align: center;
-  color: white;
   margin: 0;
+  margin: 5px 0;
 }
 
 @media all and (max-width: 500px) {
