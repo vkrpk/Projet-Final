@@ -17,7 +17,7 @@ class HomeController extends AbstractController
      */
     public function home(JeuRepository $jeuRepository): Response
     {
-        $lastJeux = $jeuRepository->findBy([], [], 1);
+        $lastJeux = $jeuRepository->findBy([], [], 3);
 
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('home_chercher'))
@@ -25,10 +25,9 @@ class HomeController extends AbstractController
             ->add('submit', SubmitType::class)
             ->getForm();
 
-        return $this->render('home.html.twig', [
+        return $this->render('home/home.html.twig', [
             'lastJeux' => $lastJeux,
             'form' => $form->createView()
-
         ]);
     }
 
@@ -56,7 +55,7 @@ class HomeController extends AbstractController
             $jeux = $jeuRepository->chercherJeu($query);
         }
 
-        return $this->render('chercher.html.twig', [
+        return $this->render('single-game.html.twig', [
             'jeux' => $jeux
         ]);
     }

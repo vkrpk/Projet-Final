@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+	{{parent()}}
+{% endblock %}
+
+
+{% block title %}
+	Accueil | vat-gaming
+{% endblock %}
+
+{% block body %}
+	<section id="body-home">
+		<h2>Annonces récemment publiés</h2>
+		<div id="body-home-annonces">
+			{% for j in lastJeux %}
+				<figure id="annonce">
+					<img src="{{j.photo}}" alt="">
+					<figcaption>
+						<p>{{j.nom}},
+							{{j.categorie.nom}}
+							-
+							{{j.lieu}}</p>
+
+					</figcaption>
+				</figure>
+			{% endfor %}
+		</div>
+	</section>
+	<section id="infos">
+		{% include 'home/infos.html.twig' with {
+		'icone': 'emojione:money-with-wings',
+		'text': 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ipsam dolore accusantium nemo cupiditate doloremque minus optio qui ipsa, voluptatibus voluptate provident ab placeat quas eum dolorum. Error, doloremque quis!'
+      } %}
+		{% include 'home/infos.html.twig' with {
+		'icone': 'flat-color-icons:online-support',
+		'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore sed temporibus ullam facere debitis nisi. Modi cum porro quae facilis reprehenderit earum iusto atque natus, tenetur deleniti tempora repudiandae vitae.'
+
+      } %}
+		{% include 'home/infos.html.twig' with {
+		'icone': 'twemoji:video-game',	
+		'text': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam placeat deleniti, corporis exercitationem tenetur nisi praesentium, possimus ipsa ad saepe sapiente dicta dignissimos ut magnam enim in distinctio voluptatum dolor.'
+      } %}
+	</section>
+	{# {{form(form)}} #}
+{% endblock %}
