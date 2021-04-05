@@ -25,10 +25,9 @@ class HomeController extends AbstractController
             ->add('submit', SubmitType::class)
             ->getForm();
 
-        return $this->render('home.html.twig', [
+        return $this->render('home/home.html.twig', [
             'lastJeux' => $lastJeux,
             'form' => $form->createView()
-
         ]);
     }
 
@@ -56,7 +55,7 @@ class HomeController extends AbstractController
             $jeux = $jeuRepository->chercherJeu($query);
         }
 
-        return $this->render('chercher.html.twig', [
+        return $this->render('single-game.html.twig', [
             'jeux' => $jeux
         ]);
     }

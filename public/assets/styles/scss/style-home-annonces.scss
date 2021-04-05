@@ -78,7 +78,7 @@
     flex-direction: column;
     align-items: center;
     #annonce {
-      width: 50vw;
+      width: 75vw;
       margin: 5px 0;
     }
   }
@@ -86,8 +86,11 @@
     flex-direction: column;
     align-items: center;
     .infos-partie {
-      width: 50vw;
+      width: 75vw;
       margin: 0 0 15px 0;
+    }
+    .infos-partie:last-child {
+      margin-bottom: 0;
     }
     p {
       margin: 0;
