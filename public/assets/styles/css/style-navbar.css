@@ -21,6 +21,11 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: #1c0e3f;
+  text-decoration: underline;
+}
+
 #navbar {
   position: relative;
   display: flex;
@@ -133,8 +138,8 @@ a {
 #navbar-burger i {
   width: 25px;
 }
-#navbar-burger .fas.fa-home {
-  font-size: 1.4rem;
+#navbar-burger .fas.fa-scroll {
+  font-size: 1.2rem;
 }
 #navbar-burger #navbar-categories-burger {
   display: flex;
