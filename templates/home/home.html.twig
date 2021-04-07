@@ -14,13 +14,14 @@
 		<div id="body-home-annonces">
 			{% for j in lastJeux %}
 				<figure id="annonce">
-					<img src="{{j.photo}}" alt="">
+					<img src="{{asset('assets/img/' ~ j.photo)}}" alt="">
 					<figcaption>
-						<p>{{j.nom}},
-							{{j.categorie.nom}}
-							-
-							{{j.lieu}}</p>
-
+						<a href="{{path('annonce_montrer', {slug: j.slug})}}">
+							<p>{{j.nom}},
+								{{j.categorie.nom}}
+								-
+								{{j.lieu}}</p>
+						</a>
 					</figcaption>
 				</figure>
 			{% endfor %}

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\JeuRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=JeuRepository::class)
@@ -19,26 +20,34 @@ class Jeu
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom de l'annonce est obligatoire !")
+     * @Assert\Length(min=3, max=255, minMessage="Le titre de l'annonce doit avoir au moins 3 caractères")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Le prix de l'annonce est obligatoire !")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="La date est obligatoire !")
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="La description est obligatoire")
+     * @Assert\Length(min=20, minMessage="La description doit faire au moins 20 caractères")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="La photo est obligatoire")
+     * @Assert\Url(message="La photo princiaple doit être un fichier valide")
      */
     private $photo;
 
@@ -54,6 +63,8 @@ class Jeu
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le lieu est obligatoire")
+     * @Assert\Length(min=3, max=255, minMessage="Le lieu de l'annonce doit avoir au moins 3 caractères")
      */
     private $lieu;
 
@@ -67,7 +78,7 @@ class Jeu
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
@@ -79,7 +90,7 @@ class Jeu
         return $this->prix;
     }
 
-    public function setPrix(int $prix): self
+    public function setPrix(?int $prix): self
     {
         $this->prix = $prix;
 
@@ -103,7 +114,7 @@ class Jeu
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -115,7 +126,7 @@ class Jeu
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
 
@@ -127,7 +138,7 @@ class Jeu
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
+    public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
 
@@ -151,7 +162,7 @@ class Jeu
         return $this->lieu;
     }
 
-    public function setLieu(string $lieu): self
+    public function setLieu(?string $lieu): self
     {
         $this->lieu = $lieu;
 

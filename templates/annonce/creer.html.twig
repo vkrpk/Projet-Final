@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Ajouter une annonce | vat-gaming
+{% endblock %}
+
+{% block body %}
+<div id="titre">
+    <h2>Ajouter une annonce</h2>
+    {{form(form, {"attr": {"novalidate":"novalidate"}})}}
+</div>
+{% endblock %}

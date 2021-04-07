@@ -21,4 +21,9 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: #1c0e3f;
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=style.css.map */
