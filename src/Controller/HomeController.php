@@ -25,21 +25,21 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/chercher", name="home_chercher")
+     * @Route("/rechercher/annonce", name="home_chercher")
      * @param Request $request
      */
     public function chercher(Request $request, JeuRepository $jeuRepository): Response
     {
-        $query = $request->request->get('form')['query'];
-        if ($query) {
-            $jeux = $jeuRepository->chercherJeu($query);
-        }
-
-        return $this->render('single-game.html.twig', [
+        $query = $request->request->get('query');
+        // if ($query) {
+        $jeux = $jeuRepository->chercherJeu($query);
+        return $this->render('annonce/chercher-annonce.html.twig', [
             'jeux' => $jeux
         ]);
     }
-
+    // return $this->render('annonce/chercher-annonce.html.twig');
+}
+// }
     // public function formChercher(): Response
     // {
     //     $form = $this->createFormBuilder()
@@ -55,6 +55,3 @@ class HomeController extends AbstractController
     //     }
     //     return $this->render('parties-communes:navbar.html.twig');
     // }
-
-
-}
