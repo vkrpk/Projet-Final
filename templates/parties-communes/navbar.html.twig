@@ -1,7 +1,9 @@
 <nav id="navbar">
 	<ul>
 		<li>
-			<img src="{{asset('assets/img/logo.jpg')}}" alt="logo">
+			<a href="{{path('home')}}">
+				<img src="{{asset('assets/img/logo.jpg')}}" alt="logo">
+			</a>
 		</li>
 		<li>
 			<i class="fas fa-map-marker-alt"></i>
@@ -13,45 +15,36 @@
 		</li>
 		<li>
 			<i class="far fa-plus-square"></i>
-			<a href="#">Déposer une annonce</a>
+			<a href="{{path('annonce_creer')}}">Déposer une annonce</a>
 		</li>
 		<li>
 			<i class="fas fa-search"></i>
 			<input type="search" name="" id="">
-		</li>
+			 
+		</li> 
 	</ul>
-	{# {{render(controller('App\\Controller\\HomeController::home'))}}
-																																																																																														{{form(form)}} #}
 	<i class="fas fa-bars icone-menu"></i>
 </nav>
+
 <nav id="navbar-categories">
 	<ul>
-		<li>
-			<i class="fas fa-home"></i>
-		</li>
-		<li>
-			<a href="#">Nintendo64</a>
-		</li>
-		<li>
-			<a href="#">Gamecube</a>
-		</li>
-		<li>
-			<a href="#">NES</a>
-		</li>
-		<li>
-			<a href="#">PS1</a>
-		</li>
-		<li>
-			<a href="#">Xbox</a>
-		</li>
+		<li><a href="{{path('home')}}"><i class="fas fa-home"></i></a></li>
+		<li><a href="{{path('categorie_filtre',{slug:'nintendo-64'})}}">Nintendo64</a></li>
+		<li><a href="{{path('categorie_filtre',{slug:'gamecube'})}}">Gamecube</a></li>
+		<li><a href="{{path('categorie_filtre',{slug:'nes'})}}">NES</a></li>
+		<li><a href="{{path('categorie_filtre',{slug:'playstation-1'})}}">PS1</a></li>
+		<li><a href="{{path('categorie_filtre',{slug:'xbox'})}}">Xbox</a></li>
+		<li><a href="{{path('annonce_toutes')}}">Toutes les annonces</a></li>
+
+
 	</ul>
 </nav>
 <div id="navbar-burger" class="nav-ouverte">
 	<nav>
 		<ul>
 			<li>
-				<i class="fas fa-home"></i>
-				<a href="#">Accueil</a>
+				<i class="fas fa-scroll"></i>
+				<a href="{{path('annonce_toutes')}}">Toutes les annonces</a>
 			</li>
 			<li>
 				<i class="fas fa-map-marker-alt"></i>
@@ -63,7 +56,7 @@
 			</li>
 			<li>
 				<i class="far fa-plus-square"></i>
-				<a href="#">Déposer une annonce</a>
+				<a href="{{path('annonce_creer')}}">Déposer une annonce</a>
 			</li>
 			<li>
 				<i class="fas fa-search"></i>
@@ -73,11 +66,11 @@
 	</nav>
 	<nav id="navbar-categories-burger">
 		<ul>
-			<li><a href="#">Nintendo64</a></li>
-			<li><a href="#">Gamecube</a></li>
-			<li><a href="#">NES</a></li>
-			<li><a href="#">PS1</a></li>
-			<li><a href="#">Xbox</a></li>
+			<li><a href="{{path('categorie_filtre',{slug:'nintendo-64'})}}">Nintendo64</a></li>
+			<li><a href="{{path('categorie_filtre',{slug:'gamecube'})}}">Gamecube</a></li>
+			<li><a href="{{path('categorie_filtre',{slug:'nes'})}}">NES</a></li>
+			<li><a href="{{path('categorie_filtre',{slug:'playstation-1'})}}">PS1</a></li>
+			<li><a href="{{path('categorie_filtre',{slug:'xbox'})}}">Xbox</a></li>
 		</ul>
 	</nav>
 	<i class="fas fa-times icone-menu"></i>

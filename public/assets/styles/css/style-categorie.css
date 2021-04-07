@@ -1,0 +1,76 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "robotoregular", sans-serif;
+  scroll-behavior: smooth;
+  color: #333;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #1c0e3f;
+  text-decoration: underline;
+}
+
+#titre {
+  text-align: center;
+}
+
+#categorie-jeux {
+  border-bottom: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+}
+#categorie-jeux #annonce {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+  margin: 0 auto 25px auto;
+}
+#categorie-jeux #annonce div,
+#categorie-jeux #annonce figure {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  border: 1px solid #333;
+  margin: 0;
+  max-width: 500px;
+  justify-content: center;
+}
+#categorie-jeux #annonce figure {
+  background-color: #1c0e3f;
+}
+#categorie-jeux img {
+  max-width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+#categorie-jeux p {
+  margin: 5px;
+}
+#categorie-jeux p:first-child {
+  text-align: center;
+  text-decoration: underline;
+}
+
+@media all and (max-width: 700px) {
+  #annonce {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=style-categorie.css.map */
