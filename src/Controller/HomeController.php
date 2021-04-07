@@ -19,30 +19,10 @@ class HomeController extends AbstractController
     {
         $lastJeux = $jeuRepository->findBy([], [], 3);
 
-        $form = $this->createFormBuilder()
-            ->setAction($this->generateUrl('home_chercher'))
-            ->add('query', SearchType::class)
-            ->add('submit', SubmitType::class)
-            ->getForm();
-
         return $this->render('home/home.html.twig', [
             'lastJeux' => $lastJeux,
-            'form' => $form->createView()
         ]);
     }
-
-    // public function formChercher(): Response
-    // {
-    //     $form = $this->createFormBuilder()
-    //         ->setAction($this->generateUrl('home_chercher'))
-    //         ->add('query', SearchType::class)
-    //         ->add('submit', SubmitType::class)
-    //         ->getForm();
-
-    //     return $this->render('home.html.twig', [
-    //         'form' => $form->createView()
-    //     ]);
-    // }
 
     /**
      * @Route("/chercher", name="home_chercher")
@@ -59,4 +39,22 @@ class HomeController extends AbstractController
             'jeux' => $jeux
         ]);
     }
+
+    // public function formChercher(): Response
+    // {
+    //     $form = $this->createFormBuilder()
+    //         ->setAction($this->generateUrl('home_chercher'))
+    //         ->add('query', SearchType::class)
+    //         ->add('submit', SubmitType::class)
+    //         ->getForm();
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         return $this->render('parties-communes/navbar.html.twig', [
+    //             'form' => $form->createView()
+    //         ]);
+    //     }
+    //     return $this->render('parties-communes:navbar.html.twig');
+    // }
+
+
 }

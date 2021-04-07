@@ -21,6 +21,11 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: #1c0e3f;
+  text-decoration: underline;
+}
+
 #footer {
   display: flex;
   background-color: gainsboro;

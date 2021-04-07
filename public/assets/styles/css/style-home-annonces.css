@@ -21,6 +21,11 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: #1c0e3f;
+  text-decoration: underline;
+}
+
 #body-home,
 #infos {
   padding: 25px 0;
