@@ -17,6 +17,10 @@ class CategorieController extends AbstractController
     {
         $categorie = $categorieRepository->findOneBy(['slug' => $slug]);
 
+        if (!$categorie) {
+            throw $this->createNotFoundException("La catégorie demandée n'existe pas");
+        }
+
         $jeu = $jeuRepository->findBy(['categorie' => $categorie]);
 
         return $this->render('filtre-categorie.html.twig', [
