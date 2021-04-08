@@ -14,11 +14,11 @@
 		{% else %}
 		<li>
 			<i class="fas fa-user"></i>
-			<a href="#">Se connecter</a>
+			<a href="{{path('security_login')}}">Se connecter</a>
 		</li>
 		<li>
 			<i class="fas fa-user"></i>
-			<a href="#">S'inscrire</a>
+			<a href="{{path('security_login')}}">S'inscrire</a>
 		</li>
 		{% endif %}
 		<li>
@@ -54,14 +54,21 @@
 				<i class="fas fa-scroll"></i>
 				<a href="{{path('annonce_toutes')}}">Toutes les annonces</a>
 			</li>
+			{% if app.user %}
 			<li>
-				<i class="fas fa-map-marker-alt"></i>
-				<a href="#">Près de chez vous</a>
+				<i class="fas fa-user"></i>
+				<a href="{{path('security_logout')}}">Se déconnecter</a>
+			</li>
+			{% else %}
+			<li>
+				<i class="fas fa-user"></i>
+				<a href="{{path('security_login')}}">Se connecter</a>
 			</li>
 			<li>
 				<i class="fas fa-user"></i>
-				<a href="#">Se connecter</a>
+				<a href="{{path('security_login')}}">S'inscrire</a>
 			</li>
+			{% endif %}
 			<li>
 				<i class="far fa-plus-square"></i>
 				<a href="{{path('annonce_creer')}}">Déposer une annonce</a>
