@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<h2>Connexion</h2>
+
+{% if error %}
+    <p>{{ error.message}}</p>
+{% endif %}
+
+{{form(form)}}
+{% endblock %}

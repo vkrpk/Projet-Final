@@ -47,7 +47,6 @@ class Jeu
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="La photo est obligatoire")
-     * @Assert\Url(message="La photo princiaple doit être un fichier valide")
      */
     private $photo;
 
