@@ -27,6 +27,10 @@ class AnnonceController extends AbstractController
             'slug' => $slug
         ]);
 
+        if (!$annonce) {
+            throw $this->createNotFoundException("La jeu demandé n'existe pas");
+        }
+
         return $this->render('annonce/annonce.html.twig', [
             'a' => $annonce
         ]);
