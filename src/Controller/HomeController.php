@@ -30,28 +30,14 @@ class HomeController extends AbstractController
      */
     public function chercher(Request $request, JeuRepository $jeuRepository): Response
     {
+        $submittedToken = $request->request->get('_csrf_token');
         $query = $request->request->get('query');
-        // if ($query) {
-        $jeux = $jeuRepository->chercherJeu($query);
-        return $this->render('annonce/chercher-annonce.html.twig', [
-            'jeux' => $jeux
-        ]);
+        if ($this->isCsrfTokenValid('token-name', $submittedToken) && !empty($query)) {
+            $jeux = $jeuRepository->chercherJeu($query);
+            return $this->render('annonce/chercher-annonce.html.twig', [
+                'jeux' => $jeux
+            ]);
+        }
+        return $this->redirectToRoute('home');
     }
-    // return $this->render('annonce/chercher-annonce.html.twig');
 }
-// }
-    // public function formChercher(): Response
-    // {
-    //     $form = $this->createFormBuilder()
-    //         ->setAction($this->generateUrl('home_chercher'))
-    //         ->add('query', SearchType::class)
-    //         ->add('submit', SubmitType::class)
-    //         ->getForm();
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         return $this->render('parties-communes/navbar.html.twig', [
-    //             'form' => $form->createView()
-    //         ]);
-    //     }
-    //     return $this->render('parties-communes:navbar.html.twig');
-    // }
