@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
-	<div id="titre">
+	<div id="titre" class="DM">
 		<h2>Catégorie: {{a.categorie.nom}}</h2>
 	</div> 
 	
-	<section id="categorie-jeux">
-		<div id="annonce">
+	<section id="categorie-jeux" >
+		<div id="annonce" class="DM">
 			<figure>
 				<img src="{{asset('assets/img/' ~ a.photo)}}" alt="">
 			</figure>

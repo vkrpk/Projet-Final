@@ -26,4 +26,8 @@ a:hover {
   text-decoration: underline;
 }
 
+.darkmode {   
+  background-color: rgb(27, 27, 27)  !important;
+  color: #fff !important;
+}
 /*# sourceMappingURL=style.css.map */
