@@ -66,6 +66,7 @@ class AppFixtures extends Fixture
                 ->setPseudo($faker->lastName)
                 ->setPassword($hash);
 
+            $this->addReference("user-$u", $user);
             $manager->persist($user);
         }
 
@@ -80,6 +81,8 @@ class AppFixtures extends Fixture
                 $end      = new Datetime();
                 $random   = new DateTime('@' . mt_rand($start->getTimestamp(), $end->getTimestamp()));
 
+                $user = $this->getReference('user-' . $c);
+
                 $jeu = new Jeu;
                 $jeu->setNom($jeux[array_rand($jeux)])
                     ->setPrix($faker->price(100, 6000))
@@ -88,7 +91,8 @@ class AppFixtures extends Fixture
                     ->setLieu($faker->city)
                     ->setPhoto("categorie$c.jpg")
                     ->setSlug($this->slugger->slug($jeu->getNom()))
-                    ->setCategorie($categorie);
+                    ->setCategorie($categorie)
+                    ->setUser($user);
 
                 $manager->persist($jeu);
             }

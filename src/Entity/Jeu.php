@@ -47,6 +47,7 @@ class Jeu
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="La photo est obligatoire")
+     * @Assert\Image(minHeight = 300, minWidth = 300, maxWidth = 1200, maxHeight = 1200)
      */
     private $photo;
 
@@ -66,6 +67,12 @@ class Jeu
      * @Assert\Length(min=3, max=255, minMessage="Le lieu de l'annonce doit avoir au moins 3 caractères")
      */
     private $lieu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="relation")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -164,6 +171,18 @@ class Jeu
     public function setLieu(?string $lieu): self
     {
         $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
