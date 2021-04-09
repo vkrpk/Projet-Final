@@ -10,9 +10,9 @@ Recherchez un jeu
     <h2>Toutes les annonces</h2>
 </div>
 
-<section id="categorie-jeux">
+<section id="categorie-jeux" class="DM">
     {% for j in jeux %}
-    <div id="annonce">
+    <div id="annonce" class="DM">
         <figure>
             <img src="{{asset('assets/img/' ~ j.photo)}}" alt="">
         </figure>
