@@ -26,8 +26,8 @@ a:hover {
   text-decoration: underline;
 }
 
-.darkmode {   
-  background-color: rgb(27, 27, 27)  !important;
+.darkmode {
+  background-color: #1b1b1b !important;
   color: #fff !important;
 }
 
@@ -42,7 +42,7 @@ a:hover {
   border-radius: 50%;
 }
 
-.backToTop a{
+.backToTop a {
   color: black;
   display: block;
   margin: auto;

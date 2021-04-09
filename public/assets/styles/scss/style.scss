@@ -24,3 +24,24 @@ a:hover {
   color: $color-primary;
   text-decoration: underline;
 }
+.darkmode {
+  background-color: rgb(27, 27, 27) !important;
+  color: #fff !important;
+}
+
+.backToTop {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
+.backToTop a {
+  color: black;
+  display: block;
+  margin: auto;
+}
