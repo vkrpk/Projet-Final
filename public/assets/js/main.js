@@ -24,3 +24,16 @@ for(let i = 0; i < dMode.length; i++){
     dMode[i].classList.toggle("darkmode");}}
    
     buttonDarkMode.addEventListener("click", activerDarkMode);
+
+    
+ window.addEventListener("scroll", function(){
+
+  
+        if (window.scrollY > 577){
+          document.getElementsByClassName("backToTop")[0].style.display = "flex"
+        } else {
+          document.getElementsByClassName("backToTop")[0].style.display = "none"
+        }
+      })
+      
+
