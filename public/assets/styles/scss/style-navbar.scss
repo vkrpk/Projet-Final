@@ -18,7 +18,7 @@
   }
   a,
   i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
   }
   i {
@@ -48,7 +48,7 @@
   }
 }
 
-@media all and (max-width: 1500px) {
+@media all and (max-width: 1800px) {
   #navbar {
     height: 75px;
     a,
@@ -59,8 +59,8 @@
       padding-right: 0.5rem;
     }
     input {
-      width: 125px;
-      height: 1rem;
+      width: 150px;
+      height: 1.5rem;
     }
     img {
       height: 50px;
@@ -78,7 +78,7 @@
   }
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 950px) {
   #navbar-categories {
     display: none;
   }
