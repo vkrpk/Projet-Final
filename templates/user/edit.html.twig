@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Utilisateur | vat-gaming{% endblock %}
+
+{% block body %}
+<h2 class="h2user">Modifier un utilisateur</h2>
+
+{{ include('user/form.html.twig', {'button_label': 'Update','icone': 'fas fa-save'}) }}
+
+<button class="button"><a href="{{ path('user_all') }}">Gérer les utilisateurs <i class="fas fa-scroll"></i></a></button>
+
+{{ include('user/delete.html.twig') }}
+
+{% endblock %}

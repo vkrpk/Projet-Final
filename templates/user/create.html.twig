@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un utilisateur | vat-gaming{% endblock %}
+
+{% block body %}
+<h2 class="h2user">Créer un nouveau utilisateur</h2>
+
+{{ include('user/form.html.twig', {'button_label': 'Ajouter','icone': 'fas fa-user-plus'}) }}
+
+<button class="button"><a href="{{ path('user_all') }}">Gérer les utilisateurs <i class="fas fa-scroll"></i></a></button>
+
+{% endblock %}

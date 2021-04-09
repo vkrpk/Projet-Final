@@ -26,12 +26,55 @@ a:hover {
   text-decoration: underline;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+table {
+  border: 1px solid #333;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 10px;
+}
+
+table td,
+table th {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+  min-width: 100px;
+}
+
+table tbody td {
+  font-size: 13px;
+}
+
+table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+  background: #1c0e3f;
+}
+
+table thead th {
+  font-size: 15px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.button {
+  margin: 0 0 10px 10px;
+}
+
+.h2user {
+  margin-left: 10px;
+}
+
 #titre {
   text-align: center;
 }
 
 #categorie-jeux {
-  border-bottom: 1px solid #333;
   display: flex;
   flex-direction: column;
 }

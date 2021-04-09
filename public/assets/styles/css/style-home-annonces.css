@@ -26,6 +26,50 @@ a:hover {
   text-decoration: underline;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+table {
+  border: 1px solid #333;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 10px;
+}
+
+table td,
+table th {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+  min-width: 100px;
+}
+
+table tbody td {
+  font-size: 13px;
+}
+
+table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+  background: #1c0e3f;
+}
+
+table thead th {
+  font-size: 15px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.button {
+  margin: 0 0 10px 10px;
+}
+
+.h2user {
+  margin-left: 10px;
+}
+
 #body-home,
 #infos {
   padding: 25px 0;
@@ -54,13 +98,18 @@ a:hover {
 #body-home img,
 #infos img {
   max-width: 100%;
+  max-height: 300px;
+  max-width: 300px;
 }
 #body-home figure,
 #infos figure {
   background-color: #fff;
+  align-items: center;
+  background-color: #1c0e3f;
 }
 #body-home figcaption,
 #infos figcaption {
+  max-height: 50px;
   width: 100%;
   border-top: 1px solid #333;
   display: flex;
@@ -69,8 +118,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #1c0e3f;
-  color: white;
+  background-color: #fff;
 }
 #body-home p,
 #infos p {

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les utilisateurs | vat-gaming{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="h2user">Tous les utilisateurs</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Pseudo</th>
+                <th>Mot de passe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.pseudo }}</td>
+                <td>{{ user.password }}</td>
+                <td>
+                    <button><a href="{{ path('user_show', {'id': user.id}) }}">show <i class="fas fa-external-link-alt"></i></a></button>
+                    <button><a href="{{ path('user_edit', {'id': user.id}) }}">edit <i class="fas fa-edit"></i></a></button>
+                    
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<button class="button"><a href="{{ path('user_create') }}">Ajouter un utilisateur <i class="fas fa-user-plus"></i></a></button>
+    
+</div>
+
+{% endblock %}
