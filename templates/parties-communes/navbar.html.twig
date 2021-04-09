@@ -8,19 +8,30 @@
 		
 		{% if app.user %}
 		<li>
-			<i class="fas fa-user"></i>
+			<i class="fas fa-sign-out-alt"></i>
 			<a href="{{path('security_logout')}}">Se déconnecter</a>
 		</li>
+	
 		{% else %}
 		<li>
 			<i class="fas fa-user"></i>
 			<a href="{{path('security_login')}}">Se connecter</a>
 		</li>
 		<li>
-			<i class="fas fa-user"></i>
-			<a href="{{path('security_login')}}">S'inscrire</a>
+			<i class="fas fa-user-plus"></i>
+			<a href="{{path('security_register')}}">S'inscrire</a>
 		</li>
 		{% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+			<li>
+				<i class="fas fa-scroll"></i>
+				<a href="{{path('annonce_gerer')}}">Gérer les annonces</a>
+			</li>
+			<li>
+				<i class="fas fa-user"></i>
+				<a href="{{path('user_all')}}">Gérer les utilisateurs</a>
+			</li>
+			{% endif %}
 		<li>
 			<i class="far fa-plus-square"></i>
 			<a href="{{path('annonce_creer')}}">Déposer une annonce</a>
@@ -56,7 +67,7 @@
 			</li>
 			{% if app.user %}
 			<li>
-				<i class="fas fa-user"></i>
+				<i class="fas fa-sign-out-alt"></i>
 				<a href="{{path('security_logout')}}">Se déconnecter</a>
 			</li>
 			{% else %}
@@ -65,10 +76,21 @@
 				<a href="{{path('security_login')}}">Se connecter</a>
 			</li>
 			<li>
-				<i class="fas fa-user"></i>
-				<a href="{{path('security_login')}}">S'inscrire</a>
+				<i class="fas fa-user-plus"></i>
+				<a href="{{path('security_register')}}">S'inscrire</a>
 			</li>
 			{% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+			<li>
+				<i class="fas fa-scroll"></i>
+				<a href="{{path('annonce_gerer')}}">Gérer les annonces</a>
+			</li>
+			<li>
+				<i class="fas fa-user"></i>
+				<a href="{{path('user_all')}}">Gérer les utilisateurs</a>
+			</li>
+			{% endif %}
+			<li>
 			<li>
 				<i class="far fa-plus-square"></i>
 				<a href="{{path('annonce_creer')}}">Déposer une annonce</a>

@@ -23,11 +23,16 @@
   }
   img {
     max-width: 100%;
+    max-height: 300px;
+    max-width: 300px;
   }
   figure {
     background-color: #fff;
+    align-items: center;
+    background-color: $color-primary;
   }
   figcaption {
+    max-height: 50px;
     width: 100%;
     border-top: 1px solid #333;
     display: flex;
@@ -36,8 +41,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    background-color: $color-primary;
-    color: white;
+    background-color: #fff;
   }
   p {
     margin: 0;
