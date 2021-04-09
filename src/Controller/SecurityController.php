@@ -8,9 +8,19 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\EqualTo;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 
 class SecurityController extends AbstractController
 {
@@ -35,28 +45,65 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="utilisateur_new", methods={"GET","POST"})
+     * @Route("/register", name="security_register")
      */
-    public function new(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $em): Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $em)
     {
-        $utilisateur = new User();
-        $form = $this->createForm(UserType::class, $utilisateur);
+
+        $form = $this->createFormBuilder()
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Email()
+                ]
+            ])
+            ->add('pseudo', TextType::class, [
+                'constraints' => [
+                    new NotBlank()
+                ]
+            ])
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options'  => [
+                    'label' => 'Mot de passe',
+                    'constraints' => [
+                        new NotBlank(),
+                        new Length([
+                            'min' => 8
+                        ])
+                    ]
+                ],
+                'second_options' => [
+                    'label' => 'Confirmation du mot de passe'
+                ],
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Créer un compte'
+            ])
+            ->getForm();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $encodedPassword = $encoder->encodePassword($utilisateur, $utilisateur->getPassword());
-            $utilisateur->setPassword($encodedPassword);
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($utilisateur);
-            $entityManager->flush();
+            $user = new User();
 
-            return $this->redirectToRoute('utilisateur_index');
+            $formData = $form->getData();
+
+            $encodedPassword = $encoder->encodePassword($user, $formData['password']);
+
+            $user->setPassword($encodedPassword);
+            $user->setPseudo($formData['pseudo']);
+            $user->setEmail($formData['email']);
+
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute('security_login');
+        } else {
+            return $this->render('security/register.html.twig', [
+                'form' => $form->createView()
+            ]);
         }
-
-        return $this->render('utilisateur/new.html.twig', [
-            'utilisateur' => $utilisateur,
-            'form' => $form->createView(),
-        ]);
     }
 }

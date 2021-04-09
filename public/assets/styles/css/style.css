@@ -1,51 +1,17 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: "robotoregular", sans-serif;
-  scroll-behavior: smooth;
-  color: #333;
-  overflow-x: hidden;
-}
+/* Error: expected "{".
+ *    ,
+ * 86 | >>>>>>> main
+ *    |             ^
+ *    '
+ *   scss\style.scss 86:13  root stylesheet */
 
-li {
-  list-style: none;
-}
-
-ul {
-  padding-left: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  color: #1c0e3f;
-  text-decoration: underline;
-}
-
-.darkmode {
-  background-color: #1b1b1b !important;
-  color: #fff !important;
-}
-
-.backToTop {
-  display: none;
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 40px;
-  height: 40px;
-  background-color: grey;
-  border-radius: 50%;
-}
-
-.backToTop a {
-  color: black;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
-  margin: auto;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 86 \2502  >>>>>>> main\d\a    \2502              ^\a    \2575 \a   scss\\style.scss 86:13  root stylesheet';
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier une annonce | vat-gaming
+{% endblock %}
+
+{% block body %}
+<div>
+    <img src="{{asset('assets/img/' ~ oldImage)}}" alt="">
+    {{ form( form, {'action': path('annonce_modifier', {'id': id}) }) }}
+</div>
+{% endblock %}

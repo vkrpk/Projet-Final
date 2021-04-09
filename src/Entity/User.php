@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -38,6 +40,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $pseudo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Jeu::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $relation;
+
+    public function __construct()
+    {
+        $this->relation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -128,6 +140,36 @@ class User implements UserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Jeu[]
+     */
+    public function getRelation(): Collection
+    {
+        return $this->relation;
+    }
+
+    public function addRelation(Jeu $relation): self
+    {
+        if (!$this->relation->contains($relation)) {
+            $this->relation[] = $relation;
+            $relation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelation(Jeu $relation): self
+    {
+        if ($this->relation->removeElement($relation)) {
+            // set the owning side to null (unless already changed)
+            if ($relation->getUser() === $this) {
+                $relation->setUser(null);
+            }
+        }
 
         return $this;
     }

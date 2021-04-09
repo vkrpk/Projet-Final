@@ -18,16 +18,19 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ContactController extends AbstractController {
+class ContactController extends AbstractController
+{
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(Request $request, MailerInterface $mailer): Response {
+    public function index(Request $request, MailerInterface $mailer): Response
+    {
 
         // Je crée mon formulaire
         // Ou bien
         $form = $this->createFormBuilder()
             ->add('email', EmailType::class, [
+                'label' => 'Votre email',
                 'constraints' => [
                     new NotBlank(),
                     new Email()
@@ -97,7 +100,7 @@ class ContactController extends AbstractController {
 
             $mailer->send($email);
 
-            return $this->redirectToRoute('contact');
+            return $this->redirectToRoute('home');
         }
     }
 }

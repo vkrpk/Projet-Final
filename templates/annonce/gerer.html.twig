@@ -1,16 +1,16 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-Toutes les annonces
+Gérer les annonces
 | vat-gaming
 {% endblock %}
 
 {% block body %}
 <div id="titre">
-    <h2>Toutes les annonces</h2>
+    <h2>Gérer les annonces</h2>
 </div>
 
-<section id="categorie-jeux" class="DM">
+<section id="categorie-jeux">
     {% for j in jeux %}
     <div id="annonce">
         <figure>
@@ -30,9 +30,19 @@ Toutes les annonces
             <p>Ville:
                 {{j.lieu}}</p>
             <p>
-                <a href="{{path('annonce_montrer', {slug: j.slug})}}">
+                <a href="{{path('annonce_montrer', {slug: j.slug})}}"">
                     Voir l'annonce</a>
-                    <i class="fas fa-mouse-pointer"></i>
+                <i class="fas fa-mouse-pointer"></i>
+            </p>
+            <p>
+                <a href="{{path('annonce_modifier', {id: j.id})}}">
+                    Modifier cette annonce</a>
+                <i class="fas fa-edit"></i>
+            </p>
+            <p>
+                <a href="{{path('annonce_supprimer', {id: j.id})}}" onclick="return confirm('Êtes-vous sûr ?')">
+                    Supprimer cette annonce</a>
+                <i class="fas fa-trash"></i>
             </p>
             <p>{{j.description}}</p>
         </div>

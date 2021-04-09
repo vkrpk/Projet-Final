@@ -24,6 +24,7 @@ a:hover {
   color: $color-primary;
   text-decoration: underline;
 }
+<<<<<<< HEAD
 .darkmode {
   background-color: rgb(27, 27, 27) !important;
   color: #fff !important;
@@ -44,4 +45,43 @@ a:hover {
   color: black;
   display: block;
   margin: auto;
+=======
+button:hover {
+  cursor: pointer;
+}
+
+table {
+  border: 1px solid #333;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 10px;
+}
+table td,
+table th {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+  min-width: 100px;
+}
+table tbody td {
+  font-size: 13px;
+}
+table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.1);
+}
+table thead {
+  background: $color-primary;
+}
+table thead th {
+  font-size: 15px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.button {
+  margin: 0 0 10px 10px;
+}
+
+.h2user {
+  margin-left: 10px;
+>>>>>>> main
 }

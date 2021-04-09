@@ -18,6 +18,9 @@ Recherchez un jeu
         </figure>
         <div>
             <p>{{j.nom}}</p>
+				<p>Auteur: {{j.user.pseudo}}</p>
+				<p>Contact: <a href="mailto:{{j.user.email}}">{{j.user.email}}</a></p>
+
             <p>Console:
                 {{j.categorie.nom}}</p>
             <p>Prix: {{j.prix / 100}}
@@ -34,6 +37,8 @@ Recherchez un jeu
             <p>{{j.description}}</p>
         </div>
     </div>
+    {% else %}
+    <p>Il n'y a aucun jeu à afficher.</p>
     {% endfor %}
 </section>
 {% endblock %}
