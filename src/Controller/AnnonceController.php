@@ -50,13 +50,13 @@ class AnnonceController extends AbstractController
         $annonce->setDate(new DateTime('now'));
         $user = $this->getUser();
         $annonce->setUser($user);
-
         $form = $this->createForm(JeuType::class, $annonce);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $photo = $form->get('photo')->getData();
+            $photo->setSlug(strtolower($slugger->slug($photo)));
 
             $fileName =  uniqid() . '.' . $photo->guessExtension();
 
