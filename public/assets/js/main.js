@@ -14,26 +14,22 @@ for(let i = 0; i < iconeMenu.length; i++){
 }
 
 
-const dMode = document.getElementsByClassName('DM');
-const buttonDarkMode = document.getElementById('btn-darkmode');
+// const dMode = document.getElementsByClassName('DM');
+// const buttonDarkMode = document.getElementById('btn-darkmode');
 
 
 
-function activerDarkMode() {
-for(let i = 0; i < dMode.length; i++){
-    dMode[i].classList.toggle("darkmode");}}
+// function activerDarkMode() {
+// for(let i = 0; i < dMode.length; i++){
+//     dMode[i].classList.toggle("darkmode");}}
    
-    buttonDarkMode.addEventListener("click", activerDarkMode);
+//     buttonDarkMode.addEventListener("click", activerDarkMode);
 
-
- window.addEventListener("scroll", function(){
-
-  
-        if (window.scrollY > 0){
-          document.getElementsByClassName("backToTop")[0].style.display = "flex"
-        } else {
-          document.getElementsByClassName("backToTop")[0].style.display = "none"
-        }
-      })
-      
-
+function arrowUp(){
+    if (window.scrollY > 0){
+      document.getElementsByClassName("backToTop")[0].style.display = "flex"
+    } else {
+      document.getElementsByClassName("backToTop")[0].style.display = "none"
+    }
+  }
+  window.addEventListener("scroll", arrowUp)
