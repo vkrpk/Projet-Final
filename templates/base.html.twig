@@ -20,16 +20,16 @@
 
 	<body >
 		  <div id="toTop"></div>
-   		  <div class="backToTop">
-          <a href="#Top">^</a>
+		  <div class="backToTop">
+				 <a href="#Top">^</a>
          </div>
 		{% include 'parties-communes/navbar.html.twig' %}
 		{% block body %}{% endblock %}
 		{% include "parties-communes/footer.html.twig" %}
+		{% block javascripts %}
+			<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+			<script src="{{asset('assets/js/main.js')}}"></script>
+		{% endblock %}
 	</body>
-	{% block javascripts %}
-		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-		<script src="{{asset('assets/js/main.js')}}"></script>
-	{% endblock %}
 
 </html>
