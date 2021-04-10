@@ -48,6 +48,7 @@ class JeuType extends AbstractType
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ]),
                 ]
