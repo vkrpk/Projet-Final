@@ -40,4 +40,20 @@ class HomeController extends AbstractController
         }
         return $this->redirectToRoute('home');
     }
+
+    /**
+     * @Route("/cgu", name="home_cgu")
+     */
+    public function cgu(): Response
+    {
+        return $this->render('parties-communes/cgu.html.twig');
+    }
+
+    /**
+     * @Route("/a-propos", name="home_apropos")
+     */
+    public function aPropos(): Response
+    {
+        return $this->render('parties-communes/a-propos.html.twig');
+    }
 }
