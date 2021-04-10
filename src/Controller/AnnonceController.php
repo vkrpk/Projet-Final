@@ -56,7 +56,6 @@ class AnnonceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $photo = $form->get('photo')->getData();
-            $photo->setSlug(strtolower($slugger->slug($photo)));
 
             $fileName =  uniqid() . '.' . $photo->guessExtension();
 
