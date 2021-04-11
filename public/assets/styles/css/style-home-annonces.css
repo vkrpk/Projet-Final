@@ -126,6 +126,7 @@ table thead th {
 #infos figure {
   background-color: #fff;
   align-items: center;
+  overflow-x: hidden;
 }
 #body-home figcaption,
 #infos figcaption {
