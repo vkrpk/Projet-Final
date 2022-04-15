@@ -9,14 +9,18 @@
 {% endblock %}
 
 {% block body %}
-	<section id="body-home">
-		<h2>Annonces récemment publiés</h2>
+	<section
+		id="body-home">
+		{# <h2>Annonces récemment publiés</h2> #}
 		<div id="body-home-annonces">
 			{% for j in lastJeux %}
 				<figure id="annonce">
-					<img src="{{asset('assets/img/' ~ j.photo)}}" alt="">
+					<div style="background: center / cover no-repeat url(' {{asset('assets/img/' ~ j.photo)}} ');"></div>
+
+
+					{# <img src="{{asset('assets/img/' ~ j.photo)}}" alt=""> #}
 					<figcaption>
-						<a href="{{path('annonce_montrer', {slug: j.slug})}}">
+						<a href="{{path('annonce_montrer', {id : j.id})}}">
 							<p>{{j.nom}},
 								{{j.categorie.nom}}
 								-

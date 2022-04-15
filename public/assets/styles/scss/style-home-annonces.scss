@@ -1,35 +1,41 @@
 @import "style.scss";
 
-#body-home,
-#infos {
+#body-home {
   padding: 25px 0;
   background-color: gainsboro;
-  #body-home-annonces {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
   h2 {
     text-align: center;
     margin-top: 0;
+  }
+  #body-home-annonces {
+    width: 100%;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    grid-auto-flow: row;
   }
   #annonce {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #333;
-    width: 20vw;
-    margin: 0 5px;
   }
-  img {
-    max-width: 100%;
-    max-height: 300px;
-    max-width: 300px;
-  }
+
   figure {
-    background-color: #fff;
-    align-items: center;
     overflow-x: hidden;
+    height: 300px;
+    width: 300px;
+    margin: 0;
   }
+
+  div {
+    height: 100%;
+    width: 100%;
+  }
+
   figcaption {
     max-height: 50px;
     width: 100%;
@@ -42,63 +48,18 @@
     height: 100%;
     background-color: #fff;
   }
+
   p {
     margin: 0;
   }
 }
 
-#infos {
-  border-top: 1px solid #333;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  background-color: #fff;
-  .iconify {
-    font-size: 2rem;
-  }
-  .infos-partie {
-    width: 20vw;
-    margin: 0 5px;
-  }
-  p {
-    margin: 15px 15px 0 15px;
-  }
-}
-
-@media all and (max-width: 1500px) {
-  #body-home {
-    #annonce {
-      width: 30vw;
-    }
-  }
-  #infos {
-    .infos-partie {
-      width: 30vw;
-    }
-  }
-}
-
-@media all and (max-width: 700px) {
-  #body-home-annonces {
-    flex-direction: column;
-    align-items: center;
-    #annonce {
-      width: 75vw;
-      margin: 5px 0;
-    }
-  }
-  #infos {
-    flex-direction: column;
-    align-items: center;
-    .infos-partie {
-      width: 75vw;
-      margin: 0 0 15px 0;
-    }
-    .infos-partie:last-child {
-      margin-bottom: 0;
-    }
-    p {
-      margin: 0;
-    }
-  }
-}
+// @media all and (min-width: 300px) {
+//   #body-home-annonces {
+//     flex-direction: column;
+//     align-items: center;
+//     #annonce {
+//       margin-bottom: 10px;
+//     }
+//   }
+// }

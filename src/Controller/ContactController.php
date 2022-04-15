@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,56 +17,54 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ContactController extends AbstractController
-{
+class ContactController extends AbstractController {
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(Request $request, MailerInterface $mailer): Response
-    {
+    public function index( Request $request, MailerInterface $mailer ): Response {
 
         // Je crée mon formulaire
         // Ou bien
         $form = $this->createFormBuilder()
-            ->add('email', EmailType::class, [
-                'label' => 'Votre email',
+            ->add( 'email', EmailType::class, [
+                'label'       => 'Votre email',
                 'constraints' => [
                     new NotBlank(),
-                    new Email()
-                ]
-            ])
-            ->add('nom', TextType::class, [
+                    new Email(),
+                ],
+            ] )
+            ->add( 'nom', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
-                    new Length([
-                        'max' => 255
-                    ])
-                ]
-            ])
-            ->add('message', TextareaType::class, [
+                    new Length( [
+                        'max' => 255,
+                    ] ),
+                ],
+            ] )
+            ->add( 'message', TextareaType::class, [
                 'constraints' => [
-                    new NotBlank()
-                ]
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer'
-            ])
+                    new NotBlank(),
+                ],
+            ] )
+            ->add( 'submit', SubmitType::class, [
+                'label' => 'Envoyer',
+            ] )
             ->getForm();
 
         // Ou bien
         // $form = $this->createForm(ContactType::class);
 
         // Je donne la requête à mon formulaire
-        $form->handleRequest($request);
+        $form->handleRequest( $request );
 
-        if (!$form->isSubmitted() || !$form->isValid()) {
-            // Si mon formulaire n'a pas été soumis, 
+        if ( !$form->isSubmitted() || !$form->isValid() ) {
+            // Si mon formulaire n'a pas été soumis,
             // Ou s'il n'est pas valide
 
             // J'affiche la vue du formulaire
-            return $this->render('contact.html.twig', [
+            return $this->render( 'contact.html.twig', [
                 'form' => $form->createView(),
-            ]);
+            ] );
         } else {
 
             // On envoie notre mail
@@ -79,7 +76,7 @@ class ContactController extends AbstractController
             $data = $form->getData();
             // dd($data);
 
-            // Méthode 2 : 
+            // Méthode 2 :
             // On récupère depuis $_POST
             // $data = $request->request->get('form');
             // dd($data);
@@ -89,18 +86,17 @@ class ContactController extends AbstractController
                 . $data['message'] . PHP_EOL . PHP_EOL
                 . 'Si vous voulez lui répondre, veuillez écrire à l\'adresse : ' . $data['email'];
 
-
             $email = new MimeEmail();
-            $email->from(Address::create('contact Vat-Gaming<vat-gaming@victorkrupka.fr>'))
-                ->to('vat-gaming@victorkrupka.fr')
-                ->replyTo($data['email'])
-                ->subject('Tu as reçu un mail de contact !')
-                ->html('<html><body>test')
-                ->text($text);
+            $email->from( Address::create( 'contact Vat-Gaming<vat-gaming@victorkrupka.fr>' ) )
+                ->to( 'vat-gaming@victorkrupka.fr' )
+                ->replyTo( $data['email'] )
+                ->subject( 'Tu as reçu un mail de contact !' )
+                ->html( '<html><body>test' )
+                ->text( $text );
 
-            $mailer->send($email);
+            $mailer->send( $email );
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute( 'home' );
         }
     }
 }

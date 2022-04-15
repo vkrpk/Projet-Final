@@ -1,26 +1,32 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-	{{a.nom}} | vat-gaming
+	{{a.nom}}
+	| vat-gaming
 {% endblock %}
 
 {% block body %}
 	<div id="titre" class="DM">
-		<h2>Catégorie: {{a.categorie.nom}}</h2>
-	</div> 
-	
-	<section id="categorie-jeux" >
+		<h2>Catégorie:
+			{{a.categorie.nom}}</h2>
+	</div>
+
+	<section id="categorie-jeux">
 		<div id="annonce" class="DM">
 			<figure>
 				<img src="{{asset('assets/img/' ~ a.photo)}}" alt="">
 			</figure>
 			<div>
 				<p>{{a.nom}}</p>
-				<p>Auteur: {{a.user.pseudo}}</p>
-				<p>Contact: <a href="mailto:{{a.user.email}}">{{a.user.email}}</a></p>
+				<p>Auteur:
+					{{a.user.pseudo}}</p>
+				<p>Contact:
+					<a href="mailto:{{a.user.email}}">{{a.user.email}}</a>
+				</p>
 				<p>Console:
 					{{a.categorie.nom}}</p>
-				<p>Prix: {{a.prix / 100}}
+				<p>Prix:
+					{{a.prix / 100}}
 					&euro;</p>
 				<p>Publié le
 					{{a.date|date('d/m/Y')}}.</p>
