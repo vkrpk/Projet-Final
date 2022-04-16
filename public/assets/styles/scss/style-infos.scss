@@ -1,0 +1,46 @@
+@import "style.scss";
+
+#infos {
+  padding: 25px 0;
+  background-color: gainsboro;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  .iconify {
+    font-size: 2rem;
+  }
+  .infos-partie {
+    width: 20vw;
+    margin: 0 5px;
+  }
+  p {
+    margin: 15px 15px 0 15px;
+  }
+}
+
+@media all and (max-width: 1500px) {
+  #infos {
+    .infos-partie {
+      width: 30vw;
+    }
+  }
+}
+
+@media all and (min-width: 300px) {
+  #infos {
+    flex-direction: column;
+    align-items: center;
+    .infos-partie {
+      width: 75vw;
+      margin: 0 0 15px 0;
+    }
+    .infos-partie:last-child {
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}

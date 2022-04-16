@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User {{user.id}} | vat-gaming{% endblock %}
+
+{% block body %}
+<h2 class="h2user">User: {{user.pseudo}}</h2>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Roles</th>
+            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>{{ user.password }}</td>
+        </tr>
+        <tr>
+            <th>Pseudo</th>
+            <td>{{ user.pseudo }}</td>
+        </tr>
+        <tr>
+            <th>Modifier</th>
+            <td>
+                <button><a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                <i class="fas fa-edit"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{ include('user/delete.html.twig') }}
+
+<button class="button"><a href="{{ path('user_all') }}">Gérer les utilisateurs <i class="fas fa-scroll"></i></a></button>
+
+
+{% endblock %}

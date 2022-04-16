@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<h2 class="h2user">Connexion</h2>
+{% if error %}
+    <p>{{ error.message}}</p>
+{% endif %}
+
+{{form(form)}}
+<button class="button"><a href="{{path('security_register')}}">Inscription</a></button>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Toutes les annonces
+			| vat-gaming
+{% endblock %}
+
+{% block body %}
+	<div id="titre">
+		<h2>Toutes les annonces</h2>
+	</div>
+
+	<section id="categorie-jeux" class="DM">
+		{% for j in jeux %}
+			<div id="annonce">
+				<figure>
+					<img src="{{asset('assets/img/' ~ j.photo)}}" alt="">
+				</figure>
+				<div>
+					<p>{{j.nom}}</p>
+					<p>Auteur:
+						{{j.user.pseudo}}</p>
+					<p>Contact:
+						<a href="mailto:{{j.user.email}}">{{j.user.email}}</a>
+					</p>
+
+					<p>Console:
+						{{j.categorie.nom}}</p>
+					<p>Prix:
+						{{j.prix / 100}}
+						&euro;</p>
+					<p>Publié le
+						{{j.date|date('d/m/Y')}}.</p>
+					<p>Ville:
+						{{j.lieu}}</p>
+					<p>
+						<a href="{{path('annonce_montrer', {id: j.id,})}}">
+							Voir l'annonce</a>
+						<i class="fas fa-mouse-pointer"></i>
+					</p>
+					<p>{{j.description}}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+{% endblock %}

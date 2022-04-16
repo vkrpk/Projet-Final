@@ -1,0 +1,5 @@
+<form action="{{path('home_chercher')}}" method="POST" style="display: inline;">
+    <input type="search" name="query" id="" placeholder="Recherchez un jeu ...">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('token-name') }}">
+    <input type="submit" value="valider" style="display: none;">
+</form>

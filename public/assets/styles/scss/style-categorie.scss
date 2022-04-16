@@ -1,0 +1,46 @@
+@import "style.scss";
+
+#titre {
+  text-align: center;
+}
+#categorie-jeux {
+  display: flex;
+  flex-direction: column;
+  #annonce {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+    margin: 0 auto 25px auto;
+    div,
+    figure {
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: column;
+      border: 1px solid #333;
+      margin: 0;
+      max-width: 500px;
+      justify-content: center;
+    }
+    figure {
+      background-color: $color-primary;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+  }
+  p {
+    margin: 5px;
+  }
+  p:first-child {
+    text-align: center;
+    text-decoration: underline;
+  }
+}
+
+@media all and (max-width: 700px) {
+  #annonce {
+    flex-direction: column;
+  }
+}
