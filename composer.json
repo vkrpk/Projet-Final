@@ -85,7 +85,7 @@
       "@auto-scripts"
     ],
     "database-setup": [
-      "php bin/console doctrine:migration:migrate --no-interaction --allow-no-migration"
+      "php bin/console doctrine:migration:migrate --no-interaction"
     ]
   },
   "conflict": {
