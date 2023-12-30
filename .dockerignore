@@ -44,27 +44,6 @@ var/sessions/*
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 
-# Specific file extensions
-*.log
-*.sql
-*.tar.gz
-*.zip
-*.tar
-*.rar
-*.exe
-*.svg
-*.jpg
-*.png
-*.jpeg
-*.bmp
-*.pdf
-*.xlsx
-*.xls
-*.doc
-*.docx
-*.ppt
-*.pptx
-
 # Other common directories
 #bin/
 tests/
