@@ -13,7 +13,7 @@ yarn-error.log
 !/var/cache
 !/var/logs
 !/var/sessions
-.env
+#.env
 .env.local
 .env.*.local
 .phpunit.result.cache
