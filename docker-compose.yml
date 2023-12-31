@@ -32,14 +32,14 @@ services:
         volumes:
             - mysql:/var/lib/mysql
         ports:
-            - "3306:3306"
+            - "3310:3306"
         environment:
             MYSQL_ROOT_PASSWORD: password
     adminer:
         image: adminer
         restart: always
         ports:
-            - "8081:8080"
+            - "8082:8080"
 
 volumes:
     mysql:
