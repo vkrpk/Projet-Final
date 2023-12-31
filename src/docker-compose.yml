@@ -1,6 +1,6 @@
 services:
-    app:
-        image: ghcr.io/vkrpk/vat-gaming_app:latest
+    blog:
+        image: ghcr.io/vkrpk/blog-php_app:latest
         depends_on:
             - db
         networks:
@@ -8,23 +8,25 @@ services:
             - web
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.vat-gaming.rule=Host(`vat-gaming.victork.fr`)"
-            - "traefik.http.routers.vat-gaming.tls=true"
-            - "traefik.http.routers.vat-gaming.tls.certresolver=lets-encrypt"
+            - "traefik.http.routers.blog.rule=Host(`blog-php.victork.fr`)"
+            - "traefik.http.routers.blog.tls=true"
+            - "traefik.http.routers.blog.tls.certresolver=lets-encrypt"
             - "traefik.port=80"
-        env_file:
-            - .env
-    
-    database:
-        image: mysql
-        container_name: mysql
-        restart: always
-        command: --default-authentication-plugin=mysql_native_password
+    db:
+        labels:
+            - traefik.enable=false
+        ports:
+            - "3306:3306"
+        image: ghcr.io/vkrpk/blog-php_db:latest
+        networks:
+            - internal
         volumes:
             - mysql:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: password
-        
+            - MYSQL_USER=blog-php
+            - MYSQL_PASSWORD=blog-php
+            - MYSQL_DATABASE=blog-php
+
 volumes:
     mysql:
 
